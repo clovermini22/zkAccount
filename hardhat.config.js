@@ -2,5 +2,26 @@ require("@nomicfoundation/hardhat-toolbox");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  solidity: "0.8.19",
+  solidity: {
+    version: "0.8.20",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200,
+      },
+    },
+  },
+  paths: {
+    sources: './benchmark',
+  },
+  defaultNetwork: 'hardhat',
+  networks: {
+    hardhat: {},
+    mantletest: {
+      url: 'https://rpc.testnet.mantle.xyz',
+    },
+    scrolltest: {
+      url: 'https://sepolia-rpc.scroll.io',
+    },
+  },
 };
